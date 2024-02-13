@@ -1,8 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import mainReducer from '../reducer' // è come puntare a ../reducers/index
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import favouritesReducer from '../reducer/favouritesJob'
 
-const store = configureStore({
-  reducer: mainReducer,
+const globalReducer = combineReducers({
+ favouritesJob:favouritesReducer
+//  job:jobReducer
 })
-
+const store = configureStore({
+  reducer: globalReducer,
+})
 export default store
